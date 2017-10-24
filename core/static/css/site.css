@@ -169,7 +169,7 @@ a:active {
 .bloco a {
   text-decoration: none;
   display: block;
-  padding: 1em;
+  padding: 16.5px;
 }
 
 .bloco a:hover {

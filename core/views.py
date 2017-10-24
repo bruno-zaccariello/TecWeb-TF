@@ -8,7 +8,7 @@ def index(request):
 def page_lista_cursos(request):
     contexto = {
         "cursos":[
-        {"nome":"Segurança Da Informação","link":"dSegDaInfo"}, 
+        {"nome":"Segurança Da Informação","link":"/Disciplinas/SegDaInformacao"}, 
         {"nome":"Arquitetura de Software","link":"PADS"}, 
         {"nome":"Jogos Digitais","link":"JD"},
         {"nome":"Redes de Computadores","link":"RC"},
@@ -41,3 +41,9 @@ def page_detalhes_cursos(request):
 
 def page_detalhes_segdainf(request):
     return render(request, "SegDaInf.html")
+
+def page_disciplinas_segdainf(request):
+    return render(request, "dSegDaInfo.html")
+
+def page_disciplina_seginfoatualidade(request):
+    return render(request, "SegInfoAtualidade.html")
