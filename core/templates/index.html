@@ -1,0 +1,45 @@
+  {% extends 'base.html' %}
+  {% block scripts %}
+  	{{ block.super}}
+  	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+	<title>Faculdade Lorenzinni - Home Page</title>
+  {% endblock %}
+  {% block conteudo %}
+  
+  <body>    
+	
+	<img class="IMGlogo" src="/static/images/Logo_01.jpg" alt='Faculdade Lorenzinni Tecnologia, a melhor do Brasil !'/>
+    <h1 class="center">Sobre a Faculdade</h1>
+	
+	<div class="desc">
+		<p class="desc">A Faculdade Lorenzinni é uma instituição de ensino privada, apesar disso é ligada à Secretaria de Desenvolvimento Econômico, Ciência, Tecnologia e Inovação (SDECTI). O talento e dedicação dos docentes, alunos e funcionários têm sido reconhecidos por diferentes rankings mundiais, criados para medir a qualidade das faculdades a partir de diversos critérios, principalmente os relacionados à produtividade científica.</p>
+		<p class="desc">A FLT busca excelência na área de tecnologia, trazendo inovações e melhoras na área, com cursos diversos, como Segurança da Informação, Arquitetura de Software, Redes de Computadores e Sistemas de Informação.</p>
+    </div>
+	
+	<h2 class="center">Confira alguns comentários de ex-alunos</h2>
+		
+		<div class="areacmt">
+			<div class="coment">
+				<p class="nomecmt">Pedro João da Silva :</p> 
+				<p class="cmt">Essa é a melhor faculdade que existe em realação a tecnologia, com excelentes professores e teconologia de ponta para os alunos aprenderem e terem sucesso no futuro</p>
+			</div>
+			
+			<div class="coment">
+				<p class="nomecmt">Marcos Andrade :</p> 
+				<p class="cmt">Graças à Lorenzinni hoje tenho um grande nome na minha área, sendo reconhecido até internacionalmente</p>
+			</div>
+			
+			<div class="coment">
+				<p class="nomecmt">Maria Joanna :</p> 
+				<p class="cmt">Só tenho a agradecer aos professores pelo ensino e à Lorenzinni pela estrutura e pela oportunidade.</p>
+			</div>
+			
+			<div class="coment">
+				<p class="nomecmt">Enzo Gabriel :</p> 
+				<p class="cmt">Consegui uma vaga após receber uma bolsa prestando o vestibular da faculdade</p>
+			</div>
+		</div>
+  </body>
+
+	{% endblock %}

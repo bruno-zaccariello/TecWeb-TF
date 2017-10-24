@@ -1,0 +1,133 @@
+h1 {
+	color:crimson;
+	text-align: center;
+}
+
+h2 {
+	color:red;
+	text-align: center;
+	margin: 5px;
+}
+
+h3 {
+	color:darkblue;
+	text-align: center;
+	margin: 5px;
+	font-size: 95%;
+}
+
+form {
+	margin-bottom: 5px;
+}
+
+input {
+	background-color: #e0e0e0;
+	border: none;
+	border-radius:2px;
+	padding:4px;
+	width:308px;
+	height:20px;
+    font-size: 98%;
+	margin: 5px auto;
+}
+
+textarea {
+	resize:none;
+}
+
+select {
+	background-color: #e0e0e0;
+	border: none;
+	border-radius:2px;
+	width:310px;
+	height:28px;
+	margin: 5px auto;
+}
+
+.divisoria {
+	border-bottom: 1px solid black;
+}
+
+.Form {
+	margin:1em;
+}
+
+.botaoSend{
+	margin: 10px auto 5px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #555555;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoSend:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.botaoReset{
+	margin: 10px auto 5px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #ba3a35;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoReset:hover {
+    background-color: #ba3a35;
+    color: white;
+}
+
+.Box {
+	width: 500px;
+	margin: 0 auto;
+	border: none;
+	border-radius: 15px;
+	background-color: #c0c0c0;
+}
+
+.FormDiv {
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+}
+	
+label {
+	text-align: left;
+	font-family: Georgia, serif;
+	font-weight: 600;
+	font-size: 95%;
+}
+
+label.LabelCad {
+	display: inline-block;
+	width: 300px;
+	margin: 5px auto;
+}
+
+@media all and (max-width: 700px) {
+
+.CadastroBox {
+	width: auto;
+	}
+}

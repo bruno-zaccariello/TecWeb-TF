@@ -1,0 +1,115 @@
+h1 {
+	color: red;
+	text-align: center;
+	text-indent: justify;
+ }
+ 
+ h3 {
+    margin-bottom: 5px;
+	text-align: center;
+	text-indent: justify;
+	color: green ;
+ }
+ 
+ a h3:hover {
+	color: #003a15;
+	}
+
+.clickmore {
+    width: 400px;
+    padding: 0px;
+    font-size:80%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+.DetLink {
+    margin-top: 0px;
+}
+
+.DetButton {
+	border-radius: 5px;
+    background-color: white;
+    font-size: 100%;
+    font-weight: 600;
+	border-top: 1px solid black;
+	border-left: none;
+    border-bottom: 1px solid black;
+	border-right: none;
+    margin-top: 0px;
+    text-align: center;
+    transition: 0.6s;
+}
+
+.DetButton:hover {
+    font-size: 110%;
+    border-top: 2px solid black;
+	border-left: none;
+    border-bottom: 2px solid black;
+	border-right: none;
+    padding: 5px;
+    border-radius: 10px;
+    color: blue;
+}
+
+.img_container {
+	width: 200px;
+	height: 200px;
+	max-width: 200px;
+	max-height: 200px;
+	overflow: hidden;
+}
+
+.image {
+	height: 100%;
+	width: 100%;
+	object-fit:cover;
+	transition: 0.5s;
+	}
+ 
+.container a {
+	text-decoration: none;
+	transition: 0.2s;
+	}
+	
+.container a:hover {
+	color: #003a15;
+	}
+ 
+.container{
+	text-align: center;
+	text-indent: justify;
+	width: 95% ;
+	display: flex ;
+    flex-flow: row wrap;
+    margin: 5px auto;
+    justify-content: space-evenly;
+	align-items: center;
+	}
+	
+.box { 
+  border-radius: 5px; 
+  padding: 5px; 
+}
+
+.box:hover .image {
+	height: 110%;
+	width: 110%;
+} 
+	
+@media all and (max-width: 800px) {
+  .container {
+    width: 95% ;
+	display: flex ;
+	flex-flow: column wrap ;
+	justify-content: space-around ;
+	align-items: center;
+  }
+
+.DetButton {
+}
+
+.DetButton:hover {
+}
+
+}

@@ -1,0 +1,198 @@
+* {
+	box-sizing: border-box;
+}
+
+.headtitle {
+	font-size: 200%;
+	margin : 0px;
+	padding: 0px;
+}
+
+header {
+	padding-top: 2px ;
+	padding-left: 0px ;
+	padding-bottom: 0px ;
+	margin-top: 0px ;
+	margin-left: 0px ;
+	border-bottom: 2px solid black;
+	background-color: white;
+	margin-bottom: 10px;
+	}
+	
+.header img {
+	margin:2px;
+	margin-bottom: 0px;
+	border: 0px;
+	}
+	
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	padding-top: 5px;
+	border-top: 1px;
+	border-top-color: black;
+	border-top-style: solid;
+	border-top-width: 1px;
+	background-color: lightgray ;
+	font-size: 75% ;
+	margin-top: 15px ;
+	}
+
+body {
+	margin: auto 0px 50px ;
+	background-color: white;
+	font-family: Calibri;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+
+/*TAGs Gerais*/
+	
+.header img {
+  margin-left: 5px;
+  margin-right: 10px;
+  float: left;
+  width: 80px;
+  background: #555;
+}
+
+
+
+/*LINKS*/
+
+a	{
+	font-weight: 700;
+	}
+	
+a:link{
+	color: red;
+	font-weight: bold;
+}
+
+a:visited{
+	color: purple;
+	font-weight: bold;
+}
+
+a:hover{
+	color: orange;
+	font-weight: bold;
+}
+
+a:active {
+	color: green;
+	font-weight: bold;
+}
+
+
+/*MENU DE NAVEGAÇÃO*/
+
+.navigation {
+	border-top: 2px solid black;
+	padding-left: 5px;
+	margin-left: 0px;
+	margin-top: 2px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-start;
+	list-style-type: none;
+	background-color: #bfc1c3;
+	}
+	
+.navigation a {
+	color: black;
+	font-weight: 600;
+}
+
+.navigation a:hover {
+	color: white;
+}
+
+.navigation li ul {
+	position: absolute ;
+	list-style-type: none ;
+	display: none ;
+	}
+	
+.navigation li:hover ul {
+	display: flex ;
+	flex-flow: column wrap;
+	justify-content: flex-start;
+	}
+		
+.dropdown {
+	display: block ;
+	text-align: left ;
+	padding-left: 1em;
+	border-top: 2px solid #a0a0a1;
+	margin-left: -1em;
+	background-color: #bfc1c3 ;
+    margin-top: 1em;
+	}
+	
+.dropcontent {
+	display: block;
+	padding: 5px ;
+    margin-left: -1em;
+	border-bottom: 1px solid #a0a0a1 ;
+    }
+
+.dropcontent:hover {
+	background-color: darkgray;
+	}
+	
+.noanchor {
+	font-weight: 600;
+    text-decoration: none;
+    display:block;
+    font-family: sans-serif;
+    font-weight: 550;
+    padding: 1em;
+    color: black;
+    }
+
+.noanchor:hover {
+    background-color: darkgray;
+    color:white;
+    }	
+	
+.bloco a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+}
+
+.bloco a:hover {
+  background-color: darkgray;
+}
+
+@media all and (max-width: 700px) {
+  .navigation {
+    flex-flow: column wrap;
+	text-align: center;
+	padding: 0;
+	margin: 5px;
+  }
+  
+  .navigation li:hover ul {
+	position: relative ;
+	}
+	
+  .dropdown {
+	background-color : lightgray ;
+	text-align: center;
+	text-indent: center-left;
+	margin-left: -1em ;
+	margin-right: -1em;
+  }
+}

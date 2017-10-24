@@ -1,0 +1,36 @@
+  {% extends 'base.html' %}
+  {% block scripts %}
+  	{{ block.super}}
+  	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/noticias.css">
+		<title>Faculdade Lorenzinni - Noticias</title>
+  {% endblock %}
+  {% block conteudo %}
+  <body>
+  
+   <h1>Notícias</h1>
+   
+   <div class="org">
+   
+	   <div class="new">
+	   <h2 class="tit"><b>Alunos do curso de sistema da informação, desenvolvem um sistema para escolas</b></h2>
+	   <img class="image" src="/static/images/noticia_01.jpeg" alt="Imagem Representando um Sistema de Informação"/>
+	   <p class="texto">Alunos do quarto semestre do curso de sistema da informação, desenvolvem um sitema para escolas</dd>públicas, os mesmos disseram que pode ser um novo método de ampliar a organização das nossas escolas, com um sistema mais fluído e dinâmico para melhor adaptação a essa nova era tecnológica que estamos adentrando atualmente. O sistema possuí diversas funcionalidades desde um login altamente seguro assim como uma área para perguntas, para com o pessoal da secretária da unidade a qual o usuário escolher acessar.</p><br>
+	   </div>
+	   
+	   <div class="new">
+	   <h2 class="tit">Feira tecnológica ocorrerá na próxima semana. Não percam!!!</h2>
+	   <img class="image" src="/static/images/noticia_02.jpeg" alt="Imagem com Hackathon Escrito" width="400px"/>
+	   <p class="texto">Nao percam na próxima semana a nossa feira tecnológica onde teremos a apresentação de diversos</dd>projetos feitos tanto por estudantes quanto por pessoas de diversas faculdades. Teremos inclusive estandes com jogos lançados recentemente para que todos possam testar. Teremos diversas atraçóes como esta para diversos públicos, venham participar.</p><br>
+	   </div>
+	   
+	   <div class="new">
+	   <h2 class="tit">Alunos do sexto semestre Chegam a finais, do maior evento de programação da américa latina</h2>
+	   <img class="image" src="/static/images/noticia_03.jpeg" alt="Foto de um hackathon" width="400px"/>
+	   <p class="texto">Nos últimos dias ocorreu a final do evento onde os alunos de nossa unidade chegaram até a final,</dd>conseguiram o quarto lugar um grande feito, por levarem o nome da universidade para tal evento, mesmo sem ganharem aprenderam muito e estão muito contentes com o progresso deles.</p>
+	   </div>
+	   
+   </div>
+   </body>
+
+	{% endblock %}

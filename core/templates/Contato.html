@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/Contato.css">
+    <title>Faculdade Lorenzinni - Contato</title>
+{% endblock %}
+{% block conteudo %}
+  <body>
+	<div class="ContatoBox">
+	
+		<h1>CONTATO</h1>
+	
+		<div class="Infos">
+
+			<form class="ContatoForm" method="POST">
+				
+				<div class="DivInput">
+				<label for="email">E-mail:</label>
+				<input type="text" name="email" id="email"><br/>
+				</div>
+				
+				<div class="DivInput">
+				<label for="nomecontato">Nome:</label>
+				<input type="text" name="nomecontato" id="nomecontato"><br/>
+				</div>
+				
+				<div class="DivInput">
+				<label for="assunto">Assunto:</label>
+				<select name="assunto" id="assunto"><br/>
+					<option value="AtCliente">Atendimento ao Cliente</option>
+					<option value="Secretaria">Secretaria</option>
+					<option value="Financeiro">Financeiro</option>
+					<option value="Ouvidoria">Ouvidoria</option>
+				</select>
+				</div>
+				
+				<br/>
+					
+				<div class="DivInput">
+					<label for="message">Mensagem</label><br/>
+					<textarea class="message" type="text" name="message" id="message"></textarea>
+				</div>
+		
+			<button class="botaoReset" type="reset">Limpar</button>
+			<button class="botaoLogin" type="submit">Enviar</button><br/>
+			</form>
+			
+		</div>
+		
+	</div>
+  </body>
+  {% endblock %}

@@ -1,0 +1,187 @@
+h1 {
+	color:crimson;
+	text-align: center;
+}
+
+form {
+	margin-bottom: 5px;
+}
+
+textarea {
+	resize:none;
+}
+
+input[type="checkbox"] {
+	margin: 5px auto;
+}
+
+.botaoLogin{
+	margin: 10px auto 5px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #555555;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoLogin:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.botaoReset{
+	margin: 10px auto 5px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #ba3a35;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoReset:hover {
+    background-color: #ba3a35;
+    color: white;
+}
+
+.inputlogin {
+	width:173px;
+	box-sizing:border-box;
+    background-image: url('/static/images/user.png') ;
+	background-size: 10px 10px;
+    background-position: 5px 5px; 
+    background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+.inputpass {
+	width:173px;
+	box-sizing:border-box;
+    background-image: url('/static/images/key.png') ;
+	background-size: 10px 10px;
+    background-position: 5px 5px; 
+    background-repeat: no-repeat;
+	padding-left: 20px;
+}
+
+.botaoCadastro{
+	margin: 14px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #555555;
+	border-radius:4px;
+	width: 50%;
+	padding:10px;
+}
+
+.botaoCadastro:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.LoginBox {
+	display: flex;
+	flex flow: row wrap;
+	justify: space-evenly;
+	width: 650px;
+	margin: 0 auto;
+}
+
+.LoginDiv {
+	width: 50%;
+	height: auto;
+	margin: 1em;
+	border: 1px solid gray;
+	border-radius:10px;
+	padding: 5px;
+	background-color: #c9c9c9; 
+	text-align: center;
+}
+
+.LoginDiv:hover{
+	border:1px solid black;
+}
+
+.CadastroDiv {
+	width: 50%;
+	height: auto;
+	text-align: center;
+	margin: 1em;
+	padding: 5px;
+	border: 1px solid gray;
+	border-radius:10px;
+	background-color: #c9c9c9; 
+}
+
+.CadastroDiv:hover {
+	border:1px solid black;
+}
+
+.calltext {
+	font-size: 90%;
+	margin: 0 0 0 2px;
+	padding: 2px;
+}
+
+.formText1 {
+	text-align: left;
+}
+	
+.ForgotPass {
+	font-size: 80%;
+}
+	
+label {
+	font-family: Georgia, serif;
+	font-weight: 600;
+	font-size: 102%;
+}
+
+@media all and (max-width: 700px) {
+
+.LoginBox {
+	flex-flow: column wrap;
+	justify: space-evenly;
+	width: auto;
+	height: auto;
+	}
+	
+.LoginDiv {
+	width: auto;
+	height: auto;
+	}
+
+.CadastroDiv {
+	width: auto;
+	height: auto;
+	}
+
+	
+}
+	

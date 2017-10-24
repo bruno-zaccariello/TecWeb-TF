@@ -1,0 +1,54 @@
+  {% extends 'base.html' %}
+  {% block scripts %}
+  	{{ block.super}}
+  	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/CadastrarDisciplina.css">
+    <title>Faculdade Lorenzinni - Cadastro de Disciplina</title>
+  {% endblock %}
+  {% block conteudo %}
+  <body>	
+	<div class="Container">
+	
+		<h1>Cadastrar Disciplina</h1>
+	
+		<div class="DivNew">
+			
+			<form class="CadastroForm" method="POST">
+				
+				<div class="DivInput">
+				<label for="PR">Professor Responsável :</label><br/>
+				<input type="text" name="PR" id="PR"><br/>
+				</div>
+				
+				<div class="DivInput">
+				<label for="HM">Horas Mensais:</label><br/>
+				<input type="number" name="HM" id="HM"><br/>
+				</div>
+				
+				<div class="DivInput">
+				<label for="DA">Duração da Aula:</label><br/>
+				<input type="text" name="DA" id="DA"><br/>
+				</div>
+				
+				<div class="DivInput">
+				<label for="DM">Dias da Semana Ministrada:</label><br/>
+				<input type="text" name="DM" id="DM"><br/>
+				</div>
+				
+				<br/>
+					
+				<div class="DivInput">
+					<label for="ementa">Ementa:</label><br/>
+					<textarea type="text" name="ementa" id="ementa"></textarea>
+				</div>
+			
+				<button class="botaoReset" type="reset">Limpar</button>
+				<button class="botaoLogin" type="submit">Enviar</button><br/>
+			
+			</form>
+			
+		</div>
+	
+	</div>
+  </body>
+ {% endblock %}

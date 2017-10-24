@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/ForgotPass.css">
+    <title>Faculdade Lorenzinni - Esqueci Minha Senha</title>
+{% endblock %}
+{% block conteudo %}
+
+  <body>
+	<div class="Box">
+		
+		<div class="FormDiv">
+		
+			<h2> ESQUECI MINHA SENHA </h2>
+			
+			<h3>Preencha seus dados:</h3>
+			
+			<form class="Form" method="POST">
+			
+				<label class="LabelCad" for="ConfirmUser">Digite seu nome, e-mail ou RA</label>:<br/>
+				<input type="text" name="ConfirmUser" placeholder="  ..." id="ConfirmUser"/><br/>
+
+                <label class="LabelCad" for="NewPass">Nova Senha</label>:
+				<input type="password" name="NewPass" placeholder="  ..." id="NewPass"/><br/>
+				
+                <label class="LabelCad" for="ConfNewPass">Confirmar Senha</label>:
+				<input type="password" name="ConfNewPass" placeholder="  ..." id="ConfNewPass"/><br/>
+                
+				<button class="botaoReset" type="reset">Limpar</button>
+				<button class="botaoSend" type="submit">Enviar</button><br/>
+				
+				</form>
+			
+		</div>
+	
+	</div>
+  </body>
+  
+  {% endblock %}

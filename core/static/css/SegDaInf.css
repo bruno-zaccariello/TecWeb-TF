@@ -1,0 +1,38 @@
+h1 {
+	text-align: center;
+	color: red;
+}
+
+.texto{
+	margin: 5px 50px;
+	font-size: 115%;
+}
+.texto2{
+	margin: 10px 50px;
+	font: bold 15px arial, sans-serif;
+}
+
+.titulo{
+	text-align: center;
+    padding: 20px;
+}
+
+.buttonDisc {
+	background-color: rgba(0, 191, 255, 0.6);
+	border: 1px solid gray;
+	border-radius: 5px;
+	margin: 5px 50px;
+	width: 100px;
+	height: 30px;
+	font-size: 100%;
+	font-weight: 500;
+	transition: 0.5s;
+	}
+	
+.buttonDisc:hover {
+	width: 105px;
+	height: 35px;
+	border-radius: 6px;
+	background-color: deepskyblue;
+	font-size: 101%;
+	}

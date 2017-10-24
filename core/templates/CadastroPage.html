@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/CadastroPage.css">
+    <title>Faculdade Lorenzinni - Cadastre-Se</title>
+{% endblock %}
+{% block conteudo %}	
+  <body>
+	<div class="CadastroBox">
+		
+		<div class="CadastroDiv">
+		
+			<h2> CADASTRO </h2>
+			
+			<h3>Preencha seus dados:</h3>
+			
+			<form class="CadastroForm" method="POST">
+			
+				<label class="LabelCad" for="FullName">Nome</label>:
+				<input type="text" name="FullName" placeholder="  ..." id="FullName"/><br/>
+				
+				<label class="LabelCad" for="User">Usuário</label>:
+				<input type="text" name="User" placeholder="  ..." id="User"/><br/>
+				
+				<label class="LabelCad" for="Email">E-Mail</label>:
+				<input type="email" name="Email" placeholder="  ..." id="Email"/><br/>
+				
+				<label class="LabelCad" for="Birthday">Data Nasc.</label>:
+				<input type="date" name="Birthday" id="Birthday"/><br/>
+				
+				<label class="LabelCad" for="RA">RA</label>:
+				<input type="number" name="RA" placeholder="  ..." id="RA"/><br/>
+				
+				<label class="LabelCad" for="Curso">Curso</label>:
+				<input type="text" name="Curso" placeholder="  ..." id="Curso"/><br/>
+				
+				<label class="LabelCad" for="Phone">Telefone</label>:
+				<input type="tel" name="Phone" id="Phone" placeholder="  ..."/><br/>
+				
+				<label class="LabelCad" for="Pass">Senha</label>:
+				<input type="password" name="Pass" id="Pass"/><br/>
+				
+				<label class="LabelCad" for="PassConfirm">Confirmar Senha</label>:
+				<input type="password" name="PassConfirm" id="PassConfirm"/><br/>
+				
+				<label class="LabelCad" for="Gender">Sexo</label>:
+				    <select id="Gender" name="Gender">
+						<option value="Homem">Homem</option>
+						<option value="Mulher">Mulher</option>
+						<option value="Outro">Outro</option>
+					</select>
+				<br/>
+				<br/>
+				
+				
+				<label class="LabelCad" for="endereco">Endereço</label>:
+				<input type="text" name="endereco" placeholder="  ..." id="endereco"/><br/>
+				
+				<label class="LabelCad" for="endnumero">Número</label>:
+				<input type="number" name="endnumero" placeholder="  ..." id="endnumero"/><br/>
+				
+				<label class="LabelCad" for="complemento">Complemento</label>:
+				<input type="text" name="complemento" placeholder="  ..." id="complemento"/><br/>
+				
+				<label class="LabelCad" for="estado">Estado</label>:
+				<input type="text" name="estado" placeholder="  ..." id="estado"/><br/>
+				
+				<label class="LabelCad" for="cidade">Cidade</label>:
+				<input type="text" name="cidade" placeholder="  ..." id="cidade"/><br/>
+				
+				<label class="LabelCad" for="bairro">Bairro</label>:
+				<input type="text" name="bairro" placeholder="  ..." id="bairro"/><br/>
+				
+				<button class="botaoReset" type="reset">Limpar</button>
+				<button class="botaoCadastro" type="submit">Cadastrar</button><br/>
+				
+			</form>
+			
+		</div>
+	
+	</div>
+  </body>
+  {% endblock %}

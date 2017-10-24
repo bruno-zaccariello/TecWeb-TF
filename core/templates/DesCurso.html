@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/DesCurso.css">
+	<title>Faculdade Lorenzinni - Descrição dos Cursos</title>
+{% endblock %}
+{% block conteudo %}
+		
+	<body>
+		
+		<h1>SOBRE OS CURSOS</h1>
+		
+		<br>
+		<p class="desc">A Faculdade Lorenzinni oferece os mais diversos e completos cursos de atualidade
+		para que o aluno possa desfrutar de um aprendizado completo, voltado para o mercado de trabalho.
+		Abaixo temos uma lista com os cursos disponíveis, clicando você poderá ver todas as informações do curso,
+		como tempo de duração, descrição, disciplinas, entre outros...</p>
+		<br>
+		
+		<br>
+		<br>
+		<h1>ESCOLHA O CURSO DESEJADO</h1>
+		<br>
+		<br>
+		
+		<div class="org">	
+			
+			<a href="/Detalhes/Cursos/SegDaInformacao">
+				<div class="lista"><img src="/static/images/img1.jpg" class="imagem"></div>
+				<h2 class="title">Segurança da Informação</h2>
+			</a>
+	
+			<a href="">
+				<div class="lista"><img src="/static/images/img2.jpg" class="imagem"></div>
+				<h2 class="title">Arquitetura de Software</h2>
+			</a>
+			
+			<a href="">
+				<div class="lista"><img src="/static/images/img3.jpg" class="imagem"></div>
+				<h2 class="title">Redes de Computadores</h2>
+			</a>	
+			
+			<a href="">
+				<div class="lista"><img src="/static/images/img4.jpg" class="imagem"></div>
+				<h2 class="title">Jogos Digitais</h2>
+			</a>
+			
+			<a href="">
+				<div class="lista"><img src="/static/images/img5.jpg" class="imagem"></div>
+				<h2 class="title">Sistemas de Informação</h2>
+			</a>
+			
+		</div><br>
+	</body>
+{% endblock %}

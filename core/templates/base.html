@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	{% load static %}
+    {% block scripts %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+    {% endblock %}
+  </head>
+  <body>
+    <header class="header">
+
+        <img class="header" src="/static/images/Logo_01.jpg" alt='Faculdade Lorenzinni Tecnologia, a melhor do Brasil !' width='100px'/><p class="headtitle">Faculdade Lorenzinni</p> 
+    
+        <ul class="navigation">
+        <li class="bloco"><a href="/home">Home Page</a></li>
+        <li class="bloco"><a href="/Lista_Cursos">Lista de Cursos</a></li>
+        <li class="bloco noanchor">Disciplinas
+            <ul class="dropdown">
+                <li class="dropcontent"><a href="/Disciplinas/SdI/Seg_Inform.html">Seg. Da Info. na Atualidade</a></li>
+                <li class="dropcontent"><a href="/Disciplinas/Nova_Disciplina">Cadastrar Disciplina</a></li>
+            </ul>
+        </li>
+        <li class="bloco"><a href="/Detalhes/Cursos">Detalhes dos Cursos</a></li>
+        <li class="bloco"><a href ="/Noticias">Notícias</a></li>
+        <li class="bloco"><a href="/Contato">Contato</a></li>
+        <li class="bloco"><a href="/Login">Login</a></li>
+        </ul>
+
+    </header>
+
+    <section>
+        {% block conteudo %}
+
+        {% endblock %}
+    </section>
+
+    <footer>© Faculdade Lorenzinni Tecnologia 2000 - 2017 https://spacethearcher.github.io/TecWeb-TF/ Todos os direitos reservados.</footer>
+  </body>
+</html>
