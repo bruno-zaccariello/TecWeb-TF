@@ -14,6 +14,14 @@
 		<div class="Infos">
 
 			<form class="ContatoForm" method="POST">
+			{% for field in form %}
+					{{ field.errors }}
+					<div class="DivInput>"{{ field.label_tag }} {{ field }}</div>
+			{% endfor %}
+			</form>
+
+
+			<!--<form class="ContatoForm" method="POST">
 				
 				<div class="DivInput">
 				<label for="email">E-mail:</label>
@@ -44,7 +52,7 @@
 		
 			<button class="botaoReset" type="reset">Limpar</button>
 			<button class="botaoLogin" type="submit">Enviar</button><br/>
-			</form>
+			</form>-->
 			
 		</div>
 		

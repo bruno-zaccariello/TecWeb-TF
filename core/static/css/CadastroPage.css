@@ -38,9 +38,9 @@ select {
 	background-color: #e0e0e0;
 	border: none;
 	border-radius:2px;
-	width:204px;
+	width:200px;
 	height:28px;
-	margin: 5px auto;
+	margin: 5px -4px 5px auto;
 }
 
 .divisoria {
@@ -122,6 +122,12 @@ label.LabelCad {
 	display: inline-block;
 	width: 150px;
 	margin: 5px auto;
+}
+
+.DivDivisor {
+	border-bottom: 1px solid grey;
+	width: 80%;
+	margin: auto;
 }
 
 @media all and (max-width: 700px) {

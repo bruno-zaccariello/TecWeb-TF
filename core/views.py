@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import request
+from core.forms import ContatoForm
 # Create your views here.
 
 def index(request):
@@ -16,7 +17,7 @@ def page_lista_cursos(request):
         ],
         "faculdade":"Faculdade Lorenzinni",
     }
-    return render(request, "Lista.html", contexto)
+    return render(request, "ListaCursos.html", contexto)
 
 def page_noticias(request):
     return render(request, "noticias.html")
@@ -31,7 +32,17 @@ def page_cadastro_disciplina(request):
     return render(request, "CadastrarDisciplina.html")
 
 def page_contato(request):
-    return render(request, "Contato.html")
+    if request.POST:
+        form = ContatoForm(request.POST)
+        if form.is_valid() :
+            form.envia_email()
+    else:
+        form = CursoForm()
+        print('Executei um GET')
+    contexto = {
+        "form":form
+    }
+    return render(request, "Contato.html", contexto)
 
 def page_cadastro_usuario(request):
     return render(request, "CadastroPage.html")
