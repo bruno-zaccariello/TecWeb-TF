@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% block scripts %} {{ block.super}}
+<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+<link rel="stylesheet" type="text/css" href="/static/css/MatriculaOn.css">
+<title>Faculdade Lorenzinni - Matrícula Online</title>
+{% endblock %} {% block conteudo %}
+
+<body>
+
+	<div class="MatricBox">
+
+		<div class="CadastroDiv">
+
+			<h2> Faça sua matrícula </h2>
+
+			<h3>Preencha seus dados:</h3>
+
+			<form class="CadastroForm" method="POST">
+
+
+				<label class="LabelCad" for="FullName">Nome</label>:
+				<input type="text" name="FullName" placeholder="  ..." id="FullName" /><br/>
+
+				<label class="LabelCad" for="Email">E-Mail</label>:
+				<input type="email" name="Email" placeholder="  ..." id="Email" /><br/>
+
+				<label class="LabelCad" for="Birthday">Data Nasc.</label>:
+				<input type="date" name="Birthday" id="Birthday" /><br/>
+
+				<label class="LabelCad" for="Phone">Telefone</label>:
+				<input type="tel" name="Phone" id="Phone" placeholder="  ..." /><br/>
+
+				<label class="LabelCad" for="RG">RG</label>:
+				<input type="text" name="RG" id="RG" placeholder="00.000.000-0" /><br/>
+
+				<label class="LabelCad" for="CPF">CPF</label>:
+				<input type="text" name="CPF" id="CPF" placeholder="000.000.000/00" /><br/>
+
+
+				<label class="LabelCad" for="Curso">Escolha o curso</label>:
+				<select id="Curso" name="Curso">
+						<option value="Segurança">Segurança da Informação</option>
+						<option value="Arquitetura">Arquitetura de Software</option>
+						<option value="Redes">Redes de Computadores</option>
+						<option value="Jogos">Jogos Digitais</option>
+						<option value="Sistemas">Sistemas de Informação</option>
+					</select><br/>
+
+				<label class="LabelCad" for="Periodo">Escolha o período</label>:
+				<select id="Periodo" name="Periodo">
+							<option value="Matutino">Matutino</option>
+							<option value="Vespertino">Vespertino</option>
+							<option value="Noturno">Noturno</option>
+					</select><br/>
+
+				<br/>
+				<br/>
+
+				<div class="DivDivisor"></div>
+
+				<br/>
+
+				<label class="LabelCad" for="estado">Estado</label>:
+				<input type="text" name="estado" placeholder="  ..." id="estado" /><br/>
+
+				<label class="LabelCad" for="cidade">Cidade</label>:
+				<input type="text" name="cidade" placeholder="  ..." id="cidade" /><br/>
+
+				<label class="LabelCad" for="bairro">Bairro</label>:
+				<input type="text" name="bairro" placeholder="  ..." id="bairro" /><br/>
+
+				<button class="botaoReset" type="reset">Limpar</button>
+				<button class="botaoCadastro" type="submit">Cadastrar</button><br/>
+
+			</form>
+
+		</div>
+
+	</div>
+</body>
+
+{% endblock %}
