@@ -1,0 +1,116 @@
+h1 {
+    text-align: center;
+    color: blue
+}
+
+h2 {
+    text-align: center;
+    color:deepskyblue ;
+}
+
+h3 {
+    color: red;
+    font-family: Georgia, serif ;
+    margin-bottom: 2px;
+}
+
+h4 {
+    color: darkred;
+    text-align: left;
+    margin-top: 2px;
+}
+.desc {
+	text-align: center;
+	font-family: Georgia, serif;
+	font-size: 105%;
+	color: black;
+	font-weight: 550;
+	margin-left: 40px;
+	margin-right: 40px;
+	border-left: 1px crimson solid;
+	border-right: 1px crimson solid;
+	padding: 5px;
+	}
+.BigBox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.Module {
+    overflow-y: scroll;
+    width: 310px;
+    height: 400px;
+    border: 1px solid black;
+    padding: 5px;
+    background-color: #e0e0e0;
+    margin-top:5px;
+}
+
+.MateriaList {
+    padding: 5px;
+    text-align: left;
+    list-style: none;
+}
+
+.Materia {
+    margin: 7px;
+    font-weight: 600;
+    color: cadetblue;
+    text-align: left
+}
+
+.MateriaList li ul {
+    display: none;
+}
+
+.MateriaList li:hover ul {
+    display: flex;
+}
+
+.areacmt {
+	display: flex ;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	list-style-type: none;
+	border: 2px ;
+	border-style: solid ;
+	border-color: blue ;
+	border-width: 2px ;
+	border-top: none ;
+	border-bottom: none ;
+	padding: 3px ;
+	}
+	
+.dropmenu {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    position: relative;
+    width: 250px;
+    height: auto;
+    background-color: bisque;
+    padding: 3px;
+    margin: 5px;
+    margin-top: 2px;
+    border: 1px solid gray;
+}
+
+.dropitem {
+    margin: 5px;
+    font-size: 80%;
+    color: black;
+    display: block;
+}
+
+@media all and (max-width: 700px) {
+    .BigBox {
+    flex-flow: column wrap;
+    }
+
+    .Module {
+    width: auto;
+    height: 450px;
+    margin-top: 10px;
+    }
+}

@@ -1,0 +1,41 @@
+  {% extends 'base.html' %}
+  {% block scripts %}
+  	{{ block.super}}
+  	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	  <link rel="stylesheet" type="text/css" href="/static/css/Lista.css">
+	  <title>Faculdade Lorenzinni - Lista de Cursos</title>
+  {% endblock %}
+  {% block conteudo %}
+
+  <body>
+
+   <nav id="navMenu"></nav>
+   
+   <h1> Lista de Cursos </h1>
+   
+   <h3 class=color> Confira abaixo a lista dos cursos ofertados: </h3>
+
+     <div class="clickmore">
+     
+            <a class="DetLink" href="/Detalhes/Cursos">
+                <button class="DetButton">
+                    Clique aqui para ver Detalhes dos cursos
+                </button>
+            </a>
+     </div>
+        
+     <div class="container">
+
+	   {% for curso in cursos %}
+			 <div class="title-curso box d"><h3>{{ curso.nome }}</h3>
+       <a href="{{ curso.link }}"><p>Disciplinas do Curso</p></a>
+       <div class="img_container"><img class="image" src="/static/images/{{ curso.nome }}.jpg" alt="{{ curso.nome }}" title="Segurança da informação"></div>
+       </div>
+	   {% endfor %}
+	   
+	   </div>
+
+  </body>
+
+     {% endblock %}
+    

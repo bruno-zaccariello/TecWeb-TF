@@ -1,0 +1,118 @@
+h1 {
+    text-align: center;
+    color: blue;
+	margin-bottom: 5px;
+	}
+	
+h2 {
+	margin-top: 5px;
+	text-align: center;
+	color: darkblue;
+	}
+	
+h3.ProfSelton {
+	float: left;
+	margin-left: 10px;
+	}
+
+p {
+	margin: 5px 15px;
+	text-align: justify;
+	font-size: 17px;
+	font-family: Arial;
+	color: black;
+	}	
+	
+.areacmt {
+	background-color: rgba(200,200,200,0.6) ;
+	margin: 5px auto;
+	width: 700px;
+	border-style: solid ;
+	border-color: blue ;
+	border-width: 2px ;
+	border-top: none ;
+	border-bottom: none ;
+	padding: 3px ;
+	}
+	
+.FotoSelton {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	}	
+	
+.cmtimg {
+	margin-left: 10px;
+	width: 200px;
+	height: 200px;
+}	
+
+.Container {
+	display:flex;
+	flex-flow:row wrap;
+	justify-content:flex-start;
+}
+	
+.coment {
+	width: 220px;
+	height: 300px;
+	text-align: center;
+	margin-left: 15px;
+	}
+	
+.dds {
+	margin-left: 0;
+	font-size: 17px;
+	font-weight: 600;;
+}	
+	
+.DiasDeAula {
+	margin-left: 10px;
+	padding: 0 10px;
+	width: 430px;
+	height: 300px;
+	border-left: 1px solid gray
+	}
+	
+.nomecmt {
+	font-size: 110% ;
+	text-decoration: underline ;
+	font-weight: bold ;
+	}
+	
+.cmt {
+	text-align: left ;
+	padding: 5px ;
+	padding-left: 15px ;
+	}
+
+@media all and (max-width:800px) {
+	.areacmt {
+		width: 600px;
+		display:flex;
+		flex-flow: column wrap;
+		justify: space-evenly;
+		margin-bottom: 50px;
+	}
+}
+	
+@media all and (max-width:700px) {
+	.areacmt {
+		width: auto;
+		display:flex;
+		flex-flow: column wrap;
+		justify: space-evenly;
+		margin-bottom: 50px;
+	}
+	
+	.DiasDeAula {
+	border-top: 1px solid gray;
+	border-left: none;
+	height: auto;
+	}
+	
+	.coment {
+		text-align: center;
+	}
+	
+}
