@@ -1,0 +1,187 @@
+h1 {
+	color:crimson;
+	text-align: center;
+}
+
+form {
+	margin-bottom: 5px;
+}
+
+textarea {
+	resize:none;
+}
+
+input[type="checkbox"] {
+	margin: 5px auto;
+}
+
+.botaoEnviar{
+	margin: 10px auto 15px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #555555;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoEnviar:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.botaoReset{
+	margin: 10px auto 15px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #ba3a35;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoReset:hover {
+    background-color: #ba3a35;
+    color: white;
+}
+
+.titulo_aviso {
+	width:80%;
+	padding: 5px;
+	height: 25px;
+	margin-bottom: 10px;
+}
+
+.aviso {
+	width:80%;
+	padding: 5px;
+	height: 160px;
+	margin-bottom: 10px;
+}
+
+.botaoGerenciarAvisos{
+	margin: 14px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #555555;
+	border-radius:4px;
+	width: 50%;
+	padding:10px;
+}
+
+.botaoGerenciarAvisos:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.box {
+	display: flex;
+	flex-flow: row wrap;
+	justify: space-evenly;
+	width: 600px;
+	margin: 0 auto;
+}
+
+.div_aviso {
+	width: 80%;
+	margin: 0 auto;
+	border: 1px solid gray;
+	border-radius:10px;
+	padding: 5px;
+	background-color: #c9c9c9; 
+	text-align: center;
+}
+
+.div_aviso:hover{
+	border:1px solid black;
+}
+
+.calltext {
+	font-size: 90%;
+	margin: 0 0 0 2px;
+	padding: 2px;
+}
+
+.formText1 {
+	text-align: left;
+}
+	
+.gerenciar_avisos {
+	font-size: 120%;
+	border: 1px solid black;
+	padding: 5px;
+	margin-top: 10px;
+}
+
+a.gerenciar_avisos {
+	color: black;
+}
+
+a.gerenciar_avisos:hover {
+	color: white;
+}
+	
+label {
+	font-family: Georgia, serif;
+	font-weight: 600;
+	font-size: 102%;
+}
+
+.classes_opcoes {
+	text-align: center;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start ;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 15px;
+}
+
+.div_input {
+	width: 25%;
+}
+
+.classes_opcao {
+}
+
+@media all and (max-width: 700px) {
+
+.box {
+	flex-flow: column wrap;
+	justify: space-evenly;
+	width: auto;
+	height: auto;
+	}
+	
+.div_aviso {
+	width: auto;
+	height: auto;
+	}
+
+}
+	
