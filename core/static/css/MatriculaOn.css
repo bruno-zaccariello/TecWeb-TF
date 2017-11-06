@@ -1,0 +1,139 @@
+h1 {
+	color:crimson;
+	text-align: center;
+}
+
+h2 {
+	color:red;
+	text-align: center;
+	margin: 5px;
+}
+
+h3 {
+	color:darkblue;
+	text-align: center;
+	margin: 5px;
+	font-size: 95%;
+}
+
+form {
+	margin-bottom: 5px;
+}
+
+input {
+	background-color: #e0e0e0;
+	border: none;
+	border-radius:2px;
+	padding:2px;
+	width:200px;
+	height:20px;
+	margin: 5px auto;
+}
+
+textarea {
+	resize:none;
+}
+
+select {
+	background-color: #e0e0e0;
+	border: none;
+	border-radius:2px;
+	width:200px;
+	height:28px;
+	margin: 5px -4px 5px auto;
+}
+
+.divisoria {
+	border-bottom: 1px solid black;
+}
+
+.CadastroForm {
+	margin:1em;
+}
+
+.botaoCadastro{
+	margin: 10px auto 5px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #555555;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoCadastro:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.botaoReset{
+	margin: 10px auto 5px auto;
+	background-color: #d1d1d1;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	font-size:105%;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: black;
+    border: 2px solid #ba3a35;
+	border-radius:4px;
+	width: 30%;
+}
+
+.botaoReset:hover {
+    background-color: #ba3a35;
+    color: white;
+}
+
+.MatricBox {
+	width: 650px;
+	margin: 0 auto;
+	margin-top: 100px;
+	border: none;
+	border-radius: 15px;
+	background-color: rgba(239, 239, 239, 0.7)
+}
+
+.CadastroDiv {
+	width: 100%;
+	text-align: center;
+	padding: 5px;
+}
+
+label {
+	text-align: left;
+	font-family: Georgia, serif;
+	font-weight: 600;
+	font-size: 95%;
+}
+
+label.LabelCad {
+	display: inline-block;
+	width: 150px;
+	margin: 5px auto;
+}
+
+.DivDivisor {
+	border-bottom: 1px solid grey;
+	width: 80%;
+	margin: auto;
+}
+
+@media all and (max-width: 700px) {
+
+.MatricBox {
+	width: auto;
+	}
+}
