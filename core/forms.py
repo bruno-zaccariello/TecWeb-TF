@@ -2,20 +2,17 @@ from django import forms
 from core.models import Disciplina
 from core.models import Contato
 
-class ContatoForm(forms.Form):
+class ContatoForm(forms.ModelForm):
 
     class Meta:
         model = Contato
-        fields = "__all__"
+        fields = ["assunto", "nome", "email", "mensagem"]
 
     def envia_email(self, contato):
     	print("ENVIADO")
 
-class DisciplinaForm(forms.Form):
+class DisciplinaForm(forms.ModelForm):
 
     class Meta:
         model = Disciplina
         fields = "__all__"
-
-    def envia_email(self, contato):
-    	print("ENVIADO")

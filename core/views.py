@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import request
 from core.forms import ContatoForm
+from core.forms import DisciplinaForm
 # Create your views here.
 
 def index(request):
@@ -29,12 +30,20 @@ def page_nova_senha(request):
     return render(request, "ForgotPass.html")
 
 def page_cadastro_disciplina(request):
-    return render(request, "CadastrarDisciplina.html")
-
-def page_contato(request):
-    form = ContatoForm(request.POST)
+	if request.POST:
+		form = DisciplinaForm(request.POST)
+		if form.is_valid():
+			print("FORMULARIO ENVIADO")
+	else :
+		form = DisciplinaForm()
+	context = {
+		"form":form
+	}
+	return render(request,"CadastrarDisciplina.html",context)
+	
+def page_contato(request) :
     contexto = {
-        "form":form
+		"form":form
     }
     return render(request, "Contato.html", contexto)
 

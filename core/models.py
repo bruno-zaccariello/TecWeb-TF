@@ -27,11 +27,11 @@ class Contato(models.Model):
 
 class Disciplina(models.Model):
 
-	ementa = models.TextField("Ementa")
 	nome = models.CharField("Nome",max_length=50)
 	carga_horaria = models.IntegerField("Carga Horária")
 	teoria = models.DecimalField("Teoria", max_digits=5, decimal_places=2)
 	pratica = models.DecimalField("Prática", max_digits=5, decimal_places=2)
+	ementa = models.TextField("Ementa")
 	competencias = models.TextField("Competencias")
 	habilidades = models.TextField("Habilidades")
 	conteudo = models.TextField("Conteudo")
