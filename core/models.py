@@ -1,8 +1,7 @@
 from django.db import models
-from core.choices import *
 
 # Create your models here.
-
+		
 class Curso(models.Model):
     
     carga_horaria = models.IntegerField("Carga Horária")
@@ -14,14 +13,27 @@ class Curso(models.Model):
     ativo = models.BooleanField("Ativo?", default=True)
 
     def __str__(self):
-        return self.nome
-
+        return self.nome		
+		
 class Contato(models.Model):
 
-    assunto = models.CharField("Assunto", choices=assunto_escolha, default=1)
+    assunto = models.CharField("Assunto", max_length=50)
     email = models.EmailField("Email", blank=True)
-    nome = models.CharField("Nome", max_lenght=50)
+    nome = models.CharField("Nome", max_length=50)
     mensagem = models.TextField("Mensagem")
 
     def envia_email(self):
-        print("ENVIADO")
+        print("ENVIADO")		
+
+class Disciplina(models.Model):
+
+	ementa = models.TextField("Ementa")
+	nome = models.CharField("Nome",max_length=50)
+	carga_horaria = models.IntegerField("Carga Horária")
+	teoria = models.DecimalField("Teoria", max_digits=5, decimal_places=2)
+	pratica = models.DecimalField("Prática", max_digits=5, decimal_places=2)
+	competencias = models.TextField("Competencias")
+	habilidades = models.TextField("Habilidades")
+	conteudo = models.TextField("Conteudo")
+	bibliografia_basica = models.TextField("Bibliografia Básica")
+	bibliografia_complementar = models.TextField("Bibliografia Complementar")

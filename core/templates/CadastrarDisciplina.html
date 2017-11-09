@@ -13,38 +13,17 @@
 	
 		<div class="DivNew">
 			
-			<form class="CadastroForm" method="POST">
-				
-				<div class="DivInput">
-				<label for="PR">Professor Responsável :</label><br/>
-				<input type="text" name="PR" id="PR"><br/>
-				</div>
-				
-				<div class="DivInput">
-				<label for="HM">Horas Mensais:</label><br/>
-				<input type="number" name="HM" id="HM"><br/>
-				</div>
-				
-				<div class="DivInput">
-				<label for="DA">Duração da Aula:</label><br/>
-				<input type="text" name="DA" id="DA"><br/>
-				</div>
-				
-				<div class="DivInput">
-				<label for="DM">Dias da Semana Ministrada:</label><br/>
-				<input type="text" name="DM" id="DM"><br/>
-				</div>
-				
-				<br/>
+			<form class="ContatoForm" method="POST">
+			
+			{% for field in form %}
+					{{ field.errors }}
+					<div class="DivInput>"{{ field.label_tag }} {{ field }}</div>
+			{% endfor %}
+			
+			<button class="botaoReset" type="reset">Limpar</button>
+			<button class="botaoLogin" type="submit">Enviar</button><br/>
+		
 					
-				<div class="DivInput">
-					<label for="ementa">Ementa:</label><br/>
-					<textarea type="text" name="ementa" id="ementa"></textarea>
-				</div>
-			
-				<button class="botaoReset" type="reset">Limpar</button>
-				<button class="botaoLogin" type="submit">Enviar</button><br/>
-			
 			</form>
 			
 		</div>

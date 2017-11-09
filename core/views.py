@@ -32,13 +32,7 @@ def page_cadastro_disciplina(request):
     return render(request, "CadastrarDisciplina.html")
 
 def page_contato(request):
-    if request.POST:
-        form = ContatoForm(request.POST)
-        if form.is_valid() :
-            form.envia_email()
-    else:
-        form = CursoForm()
-        print('Executei um GET')
+    form = ContatoForm(request.POST)
     contexto = {
         "form":form
     }
