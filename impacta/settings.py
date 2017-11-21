@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'impacta.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        "ENGINE":"sql_server.pyodbc",
+        "NAME":"TecWebTF_1700604",
+		"HOST":"sqlimpacta1700604.database.windows.net",
+		"PORT":"",
+		"USER":"ServerAdmin",
+		"PASSWORD":"Admin123",
     }
 }
 
