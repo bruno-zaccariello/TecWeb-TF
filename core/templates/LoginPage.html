@@ -16,21 +16,23 @@
 			
 			<form method="POST">
 				
-				<label for="usuario">Usuário</label>:<br/>
-				<input class="inputlogin" type="text" name="Usuario" id="usuario"><br/>
-				
-				<label for="password">Senha</label>:<br>
-				<input class="inputpass" type="password" name="Senha" id="password"><br/>
+				{% csrf_token %}
+				{% for field in form %}
+
+					{{ field.errors }}
+					{{ field.label_tag }} <br/> <div class=input>{{ field }}</div>
+
+				{% endfor %}
 				
 				<input type="checkbox" name="RememberMe" id="RememberMe">
 				<label for="RememberMe">Lembre-se de mim</label><br/>
 				
 				<button class="botaoReset" type="reset">Limpar</button>
 				<button class="botaoLogin" type="submit">Login</button><br/>
-				
-				<a class="ForgotPass" href="/Nova_Senha">Esqueci minha senha</a>
 			
 			</form>
+
+			<a class="ForgotPass" href="/Nova_Senha">Esqueci minha senha</a>
 		
 		</div>
 		

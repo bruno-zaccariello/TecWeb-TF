@@ -27,14 +27,16 @@ from core.views import page_detalhes_cursos
 from core.views import page_detalhes_segdainf
 from core.views import page_disciplinas_segdainf
 from core.views import page_disciplina_seginfoatualidade
+from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index), #index
+    url(r'^$', index, name="home"), #index
     url(r'^home/', index), #index
     url(r'^Lista_Cursos/', page_lista_cursos), #Lista De Cursos
     url(r'^Noticias/', page_noticias), #Noticias
-    url(r'^Login/', page_login), #Pag de Login
+    url(r"^Login/", login, {"template_name":"LoginPage.html"}, name="login"), #Pag de Login
+    url(r'^Logout/', logout, {'next_page':'home'}, name="logout"),
     url(r'^Nova_Senha/', page_nova_senha), #Esqueci Minha Senha
     url(r'^Disciplinas/Nova_Disciplina', page_cadastro_disciplina), #Cadastrar Disciplina
     url(r'^Contato/', page_contato), #Contato

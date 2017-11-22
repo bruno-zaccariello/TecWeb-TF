@@ -11,7 +11,13 @@
     <header class="header">
 
         <img class="header" src="/static/images/Logo_01.jpg" alt='Faculdade Lorenzinni Tecnologia, a melhor do Brasil !' width='100px'/><p class="headtitle">Faculdade Lorenzinni</p> 
-    
+
+        <br/>
+
+        {% if user.is_authenticated %}
+            <div class="hello">Olá {{ user }}</div>
+        {% endif %}
+
         <ul class="navigation">
         <li class="bloco"><a href="/home">Home Page</a></li>
         <li class="bloco"><a href="/Lista_Cursos">Lista de Cursos</a></li>
@@ -24,7 +30,11 @@
         <li class="bloco"><a href="/Detalhes/Cursos">Detalhes dos Cursos</a></li>
         <li class="bloco"><a href ="/Noticias">Notícias</a></li>
         <li class="bloco"><a href="/Contato">Contato</a></li>
-        <li class="bloco"><a href="/Login">Login</a></li>
+        {% if user.is_authenticated %}
+        <li class="bloco2"><a href="{% url 'logout' %}">Sair</a></li>
+        {% else %}
+        <li class="bloco2"><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
         </ul>
 
     </header>

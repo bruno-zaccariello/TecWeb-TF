@@ -11,63 +11,59 @@ PERFIS = (
 )
 
 class UsuarioManager(BaseUserManager):
-    use_in_migrations = True
-    
-    def _create_user(self, ra, password, **extra_fields):
-        if not ra:
-            raise ValueError("RA precisa ser preenchido")
-        user = self.model(ra=ra, **extra_fields)
+    def _criar_usuario(self, ra, password, **campos):
+        if not ra: 
+            raise ValueError("RA deve ser declarado!")
+        user = self.model(ra=ra, **campos)
         user.set_password(password)
         user.save(using=self._db)
         return user
-    
-    def create_user(self, ra, password=None, **extra_fields):
-        return self._create_user(ra, password, **extra_fields)
-    
-    def create_superuser(self, ra, password, **extra_fields):
-        return self._create_user(ra, password, **extra_fields)
+
+    def create_user(self, ra, password=None, **campos):
+        return self._criar_usuario(ra, password, **campos)
+
+    def create_superuser(self, ra, password=None, **campos):
+        campos.setdefault('perfil', 'C')
+        return self._criar_usuario(ra, password, **campos)
 
 class Usuario(AbstractBaseUser):
-    ra = models.IntegerField("RA", unique=True)
-    nome = models.CharField("Nome", max_length=100, blank=True)
-    email = models.EmailField("E-mail", unique="True")
+
+    ra = models.IntegerField("RA",unique=True)
+    password = models.CharField("Senha", max_length=200)
+
+    nome = models.CharField("Nome", max_length=100)
+    email = models.EmailField("E-Mail", max_length=50)
+
+    perfil = models.CharField("Perfil", max_length=1)
     ativo = models.BooleanField("Ativo", default=True)
-    perfil = models.CharField("Perfil", max_length=1, choices=PERFIS)
     
-    USERNAME_FIELD = "ra"
-    
+    USERNAME_FIELD = 'ra'
+    REQUIRED_FIELDS = ['nome','email']
+
     objects = UsuarioManager()
-    
-    REQUIRED_FIELDS = ["nome", "email"]
-    
+
     def get_full_name(self):
         return self.nome
-    
-    def get_shot_name(self):
+
+    def get_short_name(self):
         return self.nome
-    
+
     def __str__(self):
         return self.nome
-    
-    def has_perm(self, perm, obj=None):
-        return True
-    
-    def has_module_perms(self, app_label):
-        return True
-    
+
     @property
     def is_staff(self):
-        return self.perfil == 'C'
+        return self.perfil == "C"
 
-# Create your models here.
+    def has_module_perms(self, package_name):
+        return True
 
-class Aluno(Usuario):
-    parent_link = models.OneToOneField(Usuario,primary_key=True,db_column="usuario_id",parent_link=True)
-    curso = models.ForeignKey('core.Curso',blank=True,null=True,)
-    celular = models.CharField("Celular", max_length=11)
+    def has_perm(self, perm, obj=None):
+        return True
 
+    def has_perms(self, perm_list, obj=None):
+        return True
 
-		
 class Curso(models.Model):
     
     carga_horaria = models.IntegerField("Carga Horária")
@@ -79,17 +75,7 @@ class Curso(models.Model):
     ativo = models.BooleanField("Ativo?", default=True)
 
     def __str__(self):
-        return self.nome		
-		
-class Contato(models.Model):
-
-    assunto = models.CharField("Assunto", max_length=50)
-    email = models.EmailField("Email", blank=True)
-    nome = models.CharField("Nome", max_length=50)
-    mensagem = models.TextField("Mensagem")
-
-    def envia_email(self):
-        print("ENVIADO")		
+        return self.nome
 
 class Disciplina(models.Model):
 
@@ -103,3 +89,21 @@ class Disciplina(models.Model):
 	conteudo = models.TextField("Conteudo")
 	bibliografia_basica = models.TextField("Bibliografia Básica")
 	bibliografia_complementar = models.TextField("Bibliografia Complementar")
+
+class Aluno(Usuario):
+
+    celular = models.CharField("Celular", max_length=11)
+    curso = models.ForeignKey(Curso)
+    disciplina = models.ForeignKey(Disciplina)
+
+# Create your models here.		
+		
+class Contato(models.Model):
+
+    assunto = models.CharField("Assunto", max_length=50)
+    email = models.EmailField("Email", blank=True)
+    nome = models.CharField("Nome", max_length=50)
+    mensagem = models.TextField("Mensagem")
+
+    def envia_email(self):
+        print("ENVIADO")		

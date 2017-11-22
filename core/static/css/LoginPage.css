@@ -61,24 +61,10 @@ input[type="checkbox"] {
     color: white;
 }
 
-.inputlogin {
-	width:173px;
+.input {
+	width: auto;
 	box-sizing:border-box;
-    background-image: url('/static/images/user.png') ;
-	background-size: 10px 10px;
-    background-position: 5px 5px; 
-    background-repeat: no-repeat;
-	padding-left: 20px;
-}
-
-.inputpass {
-	width:173px;
-	box-sizing:border-box;
-    background-image: url('/static/images/key.png') ;
-	background-size: 10px 10px;
-    background-position: 5px 5px; 
-    background-repeat: no-repeat;
-	padding-left: 20px;
+	padding: auto 10px;
 }
 
 .botaoCadastro{

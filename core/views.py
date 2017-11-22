@@ -3,8 +3,53 @@ from django.http import request
 from core.forms import ContatoForm
 from core.forms import DisciplinaForm
 from django.views.generic.edit import FormView
+from django.contrib.auth.decorators import login_required, user_passes_test
+
 # Create your views here.
 
+def checa_aluno(usuario):
+    return usuario.perfil == "A"
+
+def checa_professor(usuario):
+    return usuario.perfil == "P"
+
+@login_required(login_url="/login")
+@user_passes_test(checa_aluno)
+def page_noticias(request):
+    aluno = Aluno.objects.get(id=request.user.id)
+    print(aluno.curso)
+    contexto = {
+        "curso":aluno.curso
+    }
+    return render(request,"aluno.html", contexto)
+
+@login_required(login_url="/login")
+@user_passes_test(checa_aluno)
+def page_boletim(request):
+    aluno = Aluno.objects.get(id=request.user.id)
+    print(aluno.curso)
+    contexto = {
+        "curso":aluno.curso
+    }
+    return render(request,"aluno.html", contexto)
+
+@login_required(login_url="/login")
+@user_passes_test(checa_professor)
+def page_cadastro_disciplina(request):
+    if request.POST:
+        form = DisciplinaForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = DisciplinaForm()
+    context = {
+        "form":form
+    }
+    return render(request,"CadastrarDisciplina.html",context)
+
+def logout(request):
+    return render(request, "index.html")
+    
 def index(request):
     return render(request, "index.html")
 
@@ -21,8 +66,8 @@ def page_lista_cursos(request):
     }
     return render(request, "ListaCursos.html", contexto)
 
-def page_noticias(request):
-    return render(request, "noticias.html")
+'''def page_noticias(request):
+    return render(request, "noticias.html")'''
 
 def page_login(request):
     return render(request, "LoginPage.html")
@@ -30,7 +75,7 @@ def page_login(request):
 def page_nova_senha(request):
     return render(request, "ForgotPass.html")
     
-def page_cadastro_disciplina(request):
+'''def page_cadastro_disciplina(request):
 	if request.POST:
 		form = DisciplinaForm(request.POST)
 		if form.is_valid():
@@ -40,7 +85,7 @@ def page_cadastro_disciplina(request):
 	context = {
 		"form":form
 	}
-	return render(request,"CadastrarDisciplina.html",context)
+	return render(request,"CadastrarDisciplina.html",context)'''
 	
 def page_contato(request) :
     contexto = {
