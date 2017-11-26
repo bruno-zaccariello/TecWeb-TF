@@ -31,9 +31,9 @@
         <li class="bloco"><a href ="/Noticias">Notícias</a></li>
         <li class="bloco"><a href="/Contato">Contato</a></li>
         {% if user.is_authenticated %}
-        <li class="bloco2"><a href="{% url 'logout' %}">Sair</a></li>
+        <li class="bloco"><a href="{% url 'logout' %}">Sair</a></li>
         {% else %}
-        <li class="bloco2"><a href="{% url 'login' %}">Login</a></li>
+        <li class="bloco"><a href="{% url 'login' %}">Login</a></li>
         {% endif %}
         </ul>
 

@@ -4,7 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from core.models import Curso, Aluno, Disciplina
 
 class CursoAdmin(admin.ModelAdmin):
-    list_display = ["nome","tipo","carga_horaria","professor"]
+    list_display = ["sigla", "nome"]
     
 
 class AlunoForm(forms.ModelForm):

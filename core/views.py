@@ -88,6 +88,7 @@ def page_nova_senha(request):
 	return render(request,"CadastrarDisciplina.html",context)'''
 	
 def page_contato(request) :
+    form = ContatoForm
     contexto = {
 		"form":form
     }
