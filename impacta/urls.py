@@ -27,6 +27,7 @@ from core.views import page_detalhes_cursos
 from core.views import page_detalhes_segdainf
 from core.views import page_disciplinas_segdainf
 from core.views import page_disciplina_seginfoatualidade
+from core.views import page_avisos
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
@@ -45,4 +46,5 @@ urlpatterns = [
     url(r'^Detalhes/Cursos/SegDaInformacao/', page_detalhes_segdainf), #Detalhes Seg. Da Informação
     url(r'^Disciplinas/SegDaInformacao/', page_disciplinas_segdainf), #Disciplinas Seg. Da Informação
     url(r'^Disciplinas/SegInfoAtualidade/', page_disciplina_seginfoatualidade), #Disciplina Seg. Da Informação na Atualidade
+    url(r'^CriarAviso/', page_avisos)
 ]

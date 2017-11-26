@@ -194,11 +194,8 @@ class Periododisciplina(models.Model):
         unique_together = (('id_periodo', 'id_disciplina'),)
 
 
-class Professor(models.Model):
-    ra = models.IntegerField(db_column='RA', unique=True)  # Field name made lowercase.
+class Professor(Usuario):
     apelido = models.CharField(db_column='Apelido', unique=True, max_length=30)  # Field name made lowercase.
-    nome = models.CharField(db_column='Nome', max_length=120)  # Field name made lowercase.
-    email = models.CharField(db_column='Email', max_length=80)  # Field name made lowercase.
     celular = models.CharField(db_column='Celular', max_length=11)  # Field name made lowercase.
 
     class Meta:
@@ -250,3 +247,14 @@ class Contato(models.Model):
 
     def envia_email(self):
         print("ENVIADO")
+
+class Avisos(models.Model):
+
+    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
+    titulo = models.CharField("Titulo", max_length=100)
+    texto = models.TextField("Texto")
+    turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
+
+class Coordenador(Usuario):
+    
+    apelido = models.CharField("Apelido", unique=True, max_length=30)  # Field name made lowercase.

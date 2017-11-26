@@ -1,19 +1,18 @@
 from django.shortcuts import render
 from django.http import request
-from core.forms import ContatoForm
-from core.forms import DisciplinaForm
+from core.forms import ContatoForm, DisciplinaForm, AvisosForm
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
 
 def checa_aluno(usuario):
-    return usuario.perfil == "A"
+    return usuario.perfil == "A" or usuario.perfil == "C"
 
 def checa_professor(usuario):
-    return usuario.perfil == "P"
+    return usuario.perfil == "P" or usuario.perfil == "C"
 
-@login_required(login_url="/login")
+@login_required(login_url="/Login")
 @user_passes_test(checa_aluno)
 def page_noticias(request):
     aluno = Aluno.objects.get(id=request.user.id)
@@ -23,7 +22,7 @@ def page_noticias(request):
     }
     return render(request,"aluno.html", contexto)
 
-@login_required(login_url="/login")
+@login_required(login_url="/Login")
 @user_passes_test(checa_aluno)
 def page_boletim(request):
     aluno = Aluno.objects.get(id=request.user.id)
@@ -33,7 +32,7 @@ def page_boletim(request):
     }
     return render(request,"aluno.html", contexto)
 
-@login_required(login_url="/login")
+@login_required(login_url="/Login")
 @user_passes_test(checa_professor)
 def page_cadastro_disciplina(request):
     if request.POST:
@@ -93,6 +92,20 @@ def page_contato(request) :
 		"form":form
     }
     return render(request, "Contato.html", contexto)
+
+@login_required(login_url="/Login")
+@user_passes_test(checa_professor)
+def page_avisos(request) :
+    if request.POST:
+        form = AvisosForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AvisosForm()
+    contexto = {
+		"form":form
+    }
+    return render(request, "AvisoProfessor.html", contexto)
 
 def page_cadastro_usuario(request):
     return render(request, "CadastroPage.html")

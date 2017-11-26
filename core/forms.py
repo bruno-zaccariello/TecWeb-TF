@@ -1,6 +1,5 @@
 from django import forms
-from core.models import Disciplina
-from core.models import Contato
+from core.models import Disciplina, Contato, Avisos
 
 class ContatoForm(forms.ModelForm):
 
@@ -25,3 +24,9 @@ class DisciplinaForm(forms.ModelForm):
     def envia_email(self, contato):
         message = "DISCIPLINA CADASTRADA"
         print("OK - ", message)
+
+class AvisosForm(forms.ModelForm):
+
+    class Meta :
+        model = Avisos
+        fields = ["professor", "titulo", "turma", "texto"]

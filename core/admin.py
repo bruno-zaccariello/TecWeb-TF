@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from core.models import Curso, Aluno, Disciplina
+from core.models import Curso, Aluno, Disciplina, Professor, Coordenador
 
 class CursoAdmin(admin.ModelAdmin):
     list_display = ["sigla", "nome"]
@@ -38,7 +38,71 @@ class AlunoAdmin(UserAdmin):
     ordering = ["ra"]
     list_filter = ["curso"]
 
+class ProfessorForm(forms.ModelForm):
+
+    def save(self, commit=True):
+        professor = super(ProfessorForm,self).save(commit=False)
+        professor.set_password("123@mudar")
+        professor.perfil = 'P'
+        if commit:
+            Professor.save()
+        return professor
+
+    class Meta:
+        model = Professor
+        fields = ["ra", "nome", "email", "apelido", "celular"]
+
+class ProfessorAlterarForm(forms.ModelForm):
+
+    class Meta:
+        model = Professor
+        fields = ["apelido", "email", "celular"]
+
+
+class ProfessorAdmin(UserAdmin):
+    add_form = ProfessorForm
+    form = ProfessorAlterarForm
+    add_fieldsets = ((None, { "fields": ("ra", "nome", "email", "apelido", "celular")}),)
+    fieldsets = ((None, { "fields": ("nome", "email", "apelido", "celular")}),)
+    list_display = ["ra","nome","email", "apelido", "celular"]
+    filter_horizontal = []
+    ordering = ["ra"]
+    list_filter = []
+
+class CoordenadorForm(forms.ModelForm):
+
+    def save(self, commit=True):
+        coordenador = super(CoordenadorForm,self).save(commit=False)
+        coordenador.set_password("123@mudar")
+        coordenador.perfil = 'C'
+        if commit:
+            Coordenador.save()
+        return coordenador
+
+    class Meta:
+        model = Coordenador
+        fields = ["ra", "nome", "email", "apelido"]
+
+class CoordenadorAlterarForm(forms.ModelForm):
+
+    class Meta:
+        model = Coordenador
+        fields = ["apelido", "email"]
+
+
+class CoordenadorAdmin(UserAdmin):
+    add_form = CoordenadorForm
+    form = CoordenadorAlterarForm
+    add_fieldsets = ((None, { "fields": ("ra", "nome", "email", "apelido")}),)
+    fieldsets = ((None, { "fields": ("nome", "email", "apelido")}),)
+    list_display = ["ra","nome","email", "apelido"]
+    filter_horizontal = []
+    ordering = ["ra"]
+    list_filter = []
+
 # Register your models here.
 admin.site.register(Curso, CursoAdmin)
 admin.site.register(Aluno, AlunoAdmin)
+admin.site.register(Professor, ProfessorAdmin)
+admin.site.register(Coordenador, CoordenadorAdmin)
 admin.site.register(Disciplina)
