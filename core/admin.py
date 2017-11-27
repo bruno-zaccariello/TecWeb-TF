@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from core.models import Curso, Aluno, Disciplina, Professor, Coordenador
+from core.models import Curso, Aluno, Disciplina, Professor, Coordenador, Turma, Gradecurricular, Periodo, Periododisciplina
 
 class CursoAdmin(admin.ModelAdmin):
     list_display = ["sigla", "nome"]
@@ -106,3 +106,7 @@ admin.site.register(Aluno, AlunoAdmin)
 admin.site.register(Professor, ProfessorAdmin)
 admin.site.register(Coordenador, CoordenadorAdmin)
 admin.site.register(Disciplina)
+admin.site.register(Turma)
+admin.site.register(Gradecurricular)
+admin.site.register(Periodo)
+admin.site.register(Periododisciplina)

@@ -230,7 +230,7 @@ class Resposta(models.Model):
 
 class Turma(models.Model):
     id_disciplinaofertada = models.ForeignKey(Disciplinaofertada, models.DO_NOTHING, db_column='ID_DisciplinaOfertada')  # Field name made lowercase.
-    identificacao_turma = models.CharField(db_column='Identificacao_Turma', max_length=1)  # Field name made lowercase.
+    turma = models.CharField(db_column='Identificacao_Turma', max_length=5)  # Field name made lowercase.
     turno = models.CharField(db_column='Turno', max_length=15)  # Field name made lowercase.
     id_professor = models.ForeignKey(Professor, models.DO_NOTHING, db_column='ID_Professor')  # Field name made lowercase.
 
@@ -254,6 +254,13 @@ class Avisos(models.Model):
     titulo = models.CharField("Titulo", max_length=100)
     texto = models.TextField("Texto")
     turma = models.ForeignKey(Turma, on_delete=models.CASCADE)
+
+class MensagemAluno(models.Model):
+
+    aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE)
+    assunto = models.CharField("Assunto", max_length=100)
+    mensagem = models.TextField("Mensagem")
+    professor = models.ForeignKey(Professor, on_delete=models.CASCADE)
 
 class Coordenador(Usuario):
     

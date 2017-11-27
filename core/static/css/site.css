@@ -2,6 +2,18 @@
 	box-sizing: border-box;
 }
 
+.userlink {
+	color: darkblue;
+}
+
+.userlink:visited {
+	color: blue;
+}
+
+.userlink:hover {
+	color: deepskyblue;
+}
+
 .headtitle {
 	font-size: 200%;
 	margin : 0px;

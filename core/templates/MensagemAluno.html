@@ -2,25 +2,23 @@
 {% block scripts %}
 	{{ block.super}}
 	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/ForgotPass.css">
-    <title>Faculdade Lorenzinni - Esqueci Minha Senha</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/MensagemAluno.css">
+    <title>Faculdade Lorenzinni - Mensagem Aluno</title>
 {% endblock %}
 {% block conteudo %}
-
   <body>
-	<div class="Box">
-		
-		<div class="FormDiv">
-		
-			<h2> ESQUECI MINHA SENHA </h2>
+	<div class="AvisoBox">
+	
+		<h1>ESCREVA SUA MENSAGEM</h1>
+	
+		<div class="Infos">
+
+			<form class="AvisoForm" method="POST">
 			
-			<h3>Preencha seus dados:</h3>
-			
-			<form class="ContatoForm" method="POST">
 				{% csrf_token %}
 				{% for field in form %}
 						{{ field.errors }}
-						<div class="DivInput>"{{ field.label_tag }} {{ field }}</div>
+						<div class="DivInput">{{ field.label_tag }} {{ field }}</div>
 				{% endfor %}
 			
 			<button class="botaoReset" type="reset">Limpar</button>
@@ -29,8 +27,7 @@
 			</form>
 			
 		</div>
-	
+		
 	</div>
   </body>
-  
   {% endblock %}

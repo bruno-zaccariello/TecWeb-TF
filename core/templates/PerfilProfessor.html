@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+	<link rel="stylesheet" type="text/css" href="/static/css/site.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/PerfilProfessor.css">
+	<title>Faculdade Lorenzinni - Boletim</title>
+{% endblock %}
+{% block conteudo %}
+		
+    <div class="contentProf">
+        <h1> Área do Professor </h1>
+
+        <a class="aoption" href="/CriarAviso"> <div class="option">  Enviar Aviso </div> </a> 
+
+        <a class="aoption" href="/Nova_Senha"> <div class="option"> Mudar Senha </div> </a> 
+
+        <a class="aoption" href="/MensagensRecebidas"> <div class="option"> Mensagens </div> </a> 
+    </div>
+
+{% endblock %}

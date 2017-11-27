@@ -28,6 +28,9 @@ from core.views import page_detalhes_segdainf
 from core.views import page_disciplinas_segdainf
 from core.views import page_disciplina_seginfoatualidade
 from core.views import page_avisos
+from core.views import page_mensagem_aluno
+from core.views import page_perfil_professor
+from core.views import page_mensagens_professor
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
@@ -38,7 +41,7 @@ urlpatterns = [
     url(r'^Noticias/', page_noticias), #Noticias
     url(r"^Login/", login, {"template_name":"LoginPage.html"}, name="login"), #Pag de Login
     url(r'^Logout/', logout, {'next_page':'home'}, name="logout"),
-    url(r'^Nova_Senha/', page_nova_senha), #Esqueci Minha Senha
+    url(r'^Nova_Senha/', page_nova_senha, name='change_password'), #Esqueci Minha Senha
     url(r'^Disciplinas/Nova_Disciplina', page_cadastro_disciplina), #Cadastrar Disciplina
     url(r'^Contato/', page_contato), #Contato
     url(r'^Cadastre-se/', page_cadastro_usuario), #Cadastre-se
@@ -46,5 +49,8 @@ urlpatterns = [
     url(r'^Detalhes/Cursos/SegDaInformacao/', page_detalhes_segdainf), #Detalhes Seg. Da Informação
     url(r'^Disciplinas/SegDaInformacao/', page_disciplinas_segdainf), #Disciplinas Seg. Da Informação
     url(r'^Disciplinas/SegInfoAtualidade/', page_disciplina_seginfoatualidade), #Disciplina Seg. Da Informação na Atualidade
-    url(r'^CriarAviso/', page_avisos)
+    url(r'^CriarAviso/', page_avisos),
+    url(r'^EnviarMensagem/', page_mensagem_aluno),
+    url(r'^PerfilProfessor/', page_perfil_professor),
+    url(r'^MensagensRecebidas/', page_mensagens_professor)
 ]

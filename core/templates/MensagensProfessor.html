@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/MensagensProfessor.css">
+	<title>Faculdade Lorenzinni - Mensagens</title>
+{% endblock %}
+{% block conteudo %}
+		
+    <div class="mensagembox">
+        <h1> Mensagens Recebidas </h1>
+        {% for mensagem in mensagens %}
+            {% if mensagem.professor == user %}
+                <div class="mensagem">
+                 <div class="aluno"> {{ mensagem.aluno }} </div>
+                 <div class="textoCall">ASSUNTO:</div> <div class="assunto"> {{mensagem.assunto}} </div>
+                 <div class="textoCall">MENSAGEM:</div> <div class="texto"> {{mensagem.mensagem}} </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+
+{% endblock %}

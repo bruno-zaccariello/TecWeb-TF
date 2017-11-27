@@ -1,0 +1,51 @@
+h1 {
+    color : lightskyblue;
+    text-align: center;
+}
+
+.mensagembox {
+    margin: 20px auto;
+    padding: 20px;
+    width: 70%;
+    background-color: lightgray;
+    border: 1px solid black;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+}
+
+.mensagem {
+    background-color: burlywood;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+.aluno {
+    border-bottom: 1px solid black;
+    color: royalblue;
+    font-size: 105%;
+    font-weight: 600;
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+
+.assunto {
+    font-size: 105%;
+    margin-bottom: 5px;
+    color: darkblue;
+    padding-left: 10px;
+}
+
+.textoCall {
+    font-weight: 600;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.texto {
+    color: darkblue;
+    font-size: 105%;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}

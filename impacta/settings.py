@@ -92,6 +92,10 @@ LOGIN_REDIRECT_URL = 'home'
 
 LOGOUT_URL = 'logout'
 
+EMAIL_HOST_USER = 'tecwebtf1700604@outlook.com'
+
+EMAIL_HOST_PASSWORD = 'django123'
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',

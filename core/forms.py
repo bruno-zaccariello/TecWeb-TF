@@ -1,5 +1,5 @@
 from django import forms
-from core.models import Disciplina, Contato, Avisos
+from core.models import Disciplina, Contato, Avisos, MensagemAluno
 
 class ContatoForm(forms.ModelForm):
 
@@ -29,4 +29,10 @@ class AvisosForm(forms.ModelForm):
 
     class Meta :
         model = Avisos
-        fields = ["professor", "titulo", "turma", "texto"]
+        fields = ["titulo", "turma", "texto"]
+
+class MensagemAlunoForm(forms.ModelForm):
+
+    class Meta :
+        model = MensagemAluno
+        fields = ["assunto", "professor", "mensagem"]

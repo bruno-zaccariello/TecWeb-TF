@@ -15,7 +15,15 @@
         <br/>
 
         {% if user.is_authenticated %}
-            <div class="hello">Olá {{ user }}</div>
+            <div class="hello">Olá <a class="userlink" href=
+                {% if user.perfil == 'P' %}
+                    "/PerfilProfessor"
+                {% elif user.perfil == 'A' %}
+                    "/PerfilAluno"
+                {% elif user.perfil == 'C' %}
+                    "/PerfilCoordenador"
+                {% endif %}
+            >{{ user }}</a></div>
         {% endif %}
 
         <ul class="navigation">
@@ -24,7 +32,11 @@
         <li class="bloco noanchor">Disciplinas
             <ul class="dropdown">
                 <li class="dropcontent"><a href="/Disciplinas/SegInfoAtualidade/">Seg. Da Info. na Atualidade</a></li>
-                <li class="dropcontent"><a href="/Disciplinas/Nova_Disciplina">Cadastrar Disciplina</a></li>
+                {% if user.is_authenticated %}
+                    {% if user.perfil == 'P' or user.perfil == 'C' %}
+                    <li class="dropcontent"><a href="/Disciplinas/Nova_Disciplina">Cadastrar Disciplina</a></li>
+                    {% endif %}
+                {% endif %}
             </ul>
         </li>
         <li class="bloco"><a href="/Detalhes/Cursos">Detalhes dos Cursos</a></li>

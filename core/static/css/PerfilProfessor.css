@@ -1,0 +1,37 @@
+h1 {
+    color:Blue;
+}
+
+.contentProf {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto;
+    display: flex;
+    padding: 10px;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    height: auto;
+    background-color: lightgray;
+}
+
+a.aoption {
+    text-decoration: none;
+    width: 220px;
+}
+
+.option {
+    color: white;
+    width: 200px;
+    height: 50px;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 12px;
+    background-color: black;
+    transition: 0.7s;
+    border-radius: 10px;
+}
+
+.option:hover {
+    background-color: white;
+    color: black;
+}
