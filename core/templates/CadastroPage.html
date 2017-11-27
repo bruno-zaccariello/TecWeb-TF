@@ -15,7 +15,7 @@
 			
 			<h3>Preencha seus dados:</h3>
 			
-			<form class="CadastroForm" method="POST">
+			<!--<form class="CadastroForm" method="POST">
 			
 				<label class="LabelCad" for="FullName">Nome</label>:
 				<input type="text" name="FullName" placeholder="  ..." id="FullName"/><br/>
@@ -78,8 +78,20 @@
 				<button class="botaoReset" type="reset">Limpar</button>
 				<button class="botaoCadastro" type="submit">Cadastrar</button><br/>
 				
-			</form>
+			</form> -->
 			
+			<form method="post">
+			  {% csrf_token %}
+			  {% for field in form %}
+			  {{ field.erros }}
+			  <div class="LabelCad">{{field.label_tag}} {{ field }} </div>
+			  {% endfor %}
+
+			  <button class="botaoReset" type="reset">Limpar</button>
+			  <button class="botaoCadastro" type="submit">Cadastrar</button><br/>
+
+			</form>
+
 		</div>
 	
 	</div>

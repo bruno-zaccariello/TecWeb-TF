@@ -34,7 +34,7 @@ class Usuario(AbstractBaseUser):
     nome = models.CharField("Nome", max_length=100)
     email = models.EmailField("E-Mail", max_length=50)
 
-    perfil = models.CharField("Perfil", max_length=1)
+    perfil = models.CharField("Perfil", max_length=1, default="A")
     ativo = models.BooleanField("Ativo", default=True)
     
     USERNAME_FIELD = 'ra'
@@ -201,33 +201,6 @@ class Professor(Usuario):
     class Meta:
         db_table = 'Professor'
 
-
-class Questao(models.Model):
-    id_turma = models.ForeignKey('Turma', models.DO_NOTHING, db_column='ID_Turma')  # Field name made lowercase.
-    numero = models.IntegerField(db_column='Numero')  # Field name made lowercase.
-    data_limite_entrega = models.CharField(db_column='Data_Limite_Entrega', max_length=10)  # Field name made lowercase.
-    descricao = models.TextField(db_column='Descricao')  # Field name made lowercase. This field type is a guess.
-    data = models.CharField(db_column='Data', max_length=10)  # Field name made lowercase.
-
-    class Meta:
-        db_table = 'Questao'
-        unique_together = (('id_turma', 'numero'),)
-
-
-class Resposta(models.Model):
-    id_questao = models.ForeignKey(Questao, models.DO_NOTHING, db_column='ID_Questao')  # Field name made lowercase.
-    id_aluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column='ID_Aluno')  # Field name made lowercase.
-    data_avaliacao = models.CharField(db_column='Data_Avaliacao', max_length=10)  # Field name made lowercase.
-    nota = models.DecimalField(db_column='Nota', max_digits=4, decimal_places=2)  # Field name made lowercase.
-    avaliacao = models.TextField(db_column='Avaliacao')  # Field name made lowercase. This field type is a guess.
-    descricao = models.TextField(db_column='Descricao')  # Field name made lowercase. This field type is a guess.
-    data_de_envio = models.CharField(db_column='Data_de_Envio', max_length=10)  # Field name made lowercase.
-
-    class Meta:
-        db_table = 'Resposta'
-        unique_together = (('id_questao', 'id_aluno'),)
-
-
 class Turma(models.Model):
     id_disciplinaofertada = models.ForeignKey(Disciplinaofertada, models.DO_NOTHING, db_column='ID_DisciplinaOfertada')  # Field name made lowercase.
     turma = models.CharField(db_column='Identificacao_Turma', max_length=5)  # Field name made lowercase.
@@ -237,6 +210,32 @@ class Turma(models.Model):
     class Meta:
         db_table = 'Turma'
         unique_together = (('id_disciplinaofertada', 'id_professor'),)
+
+
+class Questao(models.Model):
+    id_turma = models.ForeignKey('Turma', models.DO_NOTHING, db_column='ID_Turma')  # Field name made lowercase.
+    numero = models.IntegerField(db_column='Numero')  # Field name made lowercase.
+    data_limite_entrega = models.DateField(db_column='Data_Limite_Entrega', max_length=10)  # Field name made lowercase.
+    descricao = models.TextField(db_column='Descricao')  # Field name made lowercase. This field type is a guess.
+    data = models.DateTimeField(db_column='Data', max_length=10)  # Field name made lowercase.
+
+    class Meta:
+        db_table = 'Questao'
+        unique_together = (('id_turma', 'numero'),)
+
+
+class Resposta(models.Model):
+    id_questao = models.ForeignKey(Questao, models.DO_NOTHING, db_column='ID_Questao')  # Field name made lowercase.
+    id_aluno = models.ForeignKey(Aluno, models.DO_NOTHING, db_column='ID_Aluno')  # Field name made lowercase.
+    data_avaliacao = models.DateTimeField(db_column='Data_Avaliacao', max_length=10)  # Field name made lowercase.
+    nota = models.DecimalField(db_column='Nota', max_digits=4, decimal_places=2, null=True)  # Field name made lowercase.
+    avaliacao = models.TextField(db_column='Avaliacao', null=True)  # Field name made lowercase. This field type is a guess.
+    descricao = models.TextField(db_column='Descricao')  # Field name made lowercase. This field type is a guess.
+    data_de_envio = models.DateTimeField(db_column='Data_de_Envio', max_length=10)  # Field name made lowercase.
+
+    class Meta:
+        db_table = 'Resposta'
+        unique_together = (('id_questao', 'id_aluno'),)
 
 class Contato(models.Model):
 

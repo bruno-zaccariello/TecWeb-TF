@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import request
-from core.forms import ContatoForm, DisciplinaForm, AvisosForm, MensagemAlunoForm
+from core.forms import ContatoForm, DisciplinaForm, AvisosForm, MensagemAlunoForm, QuestaoForm, RespostaForm, CadastroForm
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required, user_passes_test
-from core.models import Aluno, Professor, MensagemAluno, Avisos
+from core.models import Aluno, Professor, MensagemAluno, Avisos, Questao, Resposta
 from django.contrib import messages
-from django.contrib.auth import update_session_auth_hash
-from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash, login, authenticate
+from django.contrib.auth.forms import PasswordChangeForm, UserCreationForm
+import datetime
 
 # Create your views here.
 
@@ -15,6 +16,9 @@ def checa_aluno(usuario):
 
 def checa_professor(usuario):
     return usuario.perfil == "P" or usuario.perfil == "C"
+
+def checa_coordenador(usuario):
+    return usuario.perfil == "C"
 
 '''@login_required(login_url="/Login")
 @user_passes_test(checa_aluno)
@@ -82,6 +86,7 @@ def page_contato(request) :
     if request.POST:
         form = ContatoForm(request.POST)
         if form.is_valid():
+            form.save()
             print("MENSAGEM ENVIADA")
     else:
         form = ContatoForm()
@@ -115,7 +120,8 @@ def page_mensagem_aluno(request) :
         mensagem = form.save(commit=False)
         mensagem.aluno = Aluno.objects.get(nome=request.user.nome)
         if form.is_valid():
-            form.save()
+            mensagem.save()
+            print("MENSAGEM ENVIADA")
     else:
         form = MensagemAlunoForm()
     contexto = {
@@ -124,7 +130,15 @@ def page_mensagem_aluno(request) :
     return render(request, "MensagemAluno.html", contexto)
 
 def page_cadastro_usuario(request):
-    return render(request, "CadastroPage.html")
+    if request.method == 'POST':
+        form = CadastroForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('login')
+    else:
+        form = CadastroForm()
+    contexto = {'form': form}
+    return render(request, 'CadastroPage.html', contexto)
 
 def page_detalhes_cursos(request):
     return render(request, "DesCurso.html")
@@ -161,6 +175,11 @@ def page_perfil_professor(request) :
     return render(request, "PerfilProfessor.html")
 
 @login_required(login_url="/Login")
+@user_passes_test(checa_coordenador)
+def page_perfil_coordenador(request) :
+    return render(request, "PerfilCoordenador.html")
+
+@login_required(login_url="/Login")
 @user_passes_test(checa_aluno)
 def page_perfil_aluno(request) :
     return render(request, "PerfilAluno.html")
@@ -184,3 +203,54 @@ def page_avisos_aluno(request):
         "avisos":avisos,
     }
     return render(request, "AvisosAluno.html", contexto)
+
+@login_required(login_url="/Login")
+@user_passes_test(checa_professor)
+def page_cadastrar_questao(request):
+    if request.method == 'POST' :
+        form = QuestaoForm(request.POST)
+        questao = form.save(commit=False)
+        questao.data = datetime.datetime.now()
+        if form.is_valid():
+            questao.save()
+            print("QUESTAO ENVIADA")
+    else :
+        form = QuestaoForm()
+    contexto = {
+        "form":form,
+    }
+    return render(request, "CadastrarQuestao.html", contexto)
+
+@login_required(login_url="/Login")
+@user_passes_test(checa_aluno)
+def page_responder_questao(request):
+    questoes = Questao.objects.all()
+    if request.method == 'POST' :
+        form = RespostaForm(request.POST)
+        respostas = form.save(commit=False)
+        respostas.data_de_envio = datetime.datetime.now()
+        respostas.data_avaliacao = datetime.datetime.now()
+        respostas.id_aluno = Aluno.objects.get(nome=request.user.nome)
+        respostas.nota = 0
+        respostas.avaliacao = 'OK'
+        if form.is_valid():
+            respostas.save()
+            print("RESPOSTA ENVIADA")
+        else:
+            print("PRAZO VENCIDO")
+    else :
+        form = RespostaForm()
+    contexto = {
+        "form":form,
+        "questoes":questoes
+    }
+    return render(request, "QUestoesRecebidas.html", contexto)
+
+@login_required(login_url="/Login")
+@user_passes_test(checa_professor)
+def page_respostas_recebidas(request):
+    respostas = Resposta.objects.all()
+    contexto = {
+        "respostas":respostas,
+    }
+    return render(request, "RespostasRecebidas.html", contexto)

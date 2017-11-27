@@ -31,8 +31,12 @@ from core.views import page_avisos
 from core.views import page_mensagem_aluno
 from core.views import page_perfil_professor
 from core.views import page_perfil_aluno
+from core.views import page_perfil_coordenador
 from core.views import page_mensagens_professor
 from core.views import page_avisos_aluno
+from core.views import page_cadastrar_questao
+from core.views import page_responder_questao
+from core.views import page_respostas_recebidas
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
@@ -51,10 +55,14 @@ urlpatterns = [
     url(r'^Detalhes/Cursos/SegDaInformacao/', page_detalhes_segdainf), #Detalhes Seg. Da Informação
     url(r'^Disciplinas/SegDaInformacao/', page_disciplinas_segdainf), #Disciplinas Seg. Da Informação
     url(r'^Disciplinas/SegInfoAtualidade/', page_disciplina_seginfoatualidade), #Disciplina Seg. Da Informação na Atualidade
-    url(r'^CriarAviso/', page_avisos),
+    url(r'^Professor/CriarAviso/', page_avisos),
     url(r'^EnviarMensagem/', page_mensagem_aluno),
     url(r'^PerfilProfessor/', page_perfil_professor),
     url(r'^PerfilAluno/', page_perfil_aluno),
-    url(r'^MensagensRecebidas/', page_mensagens_professor),
-    url(r'^AvisosRecebidos/', page_avisos_aluno)
+    url(r'^PerfilCoordenador/', page_perfil_coordenador),
+    url(r'^Professor/MensagensRecebidas/', page_mensagens_professor),
+    url(r'^AvisosRecebidos/', page_avisos_aluno),
+    url(r'^Professor/CadastrarQuestao/', page_cadastrar_questao),
+    url(r'^QuestoesRecebidas/', page_responder_questao),
+    url(r'^Professor/Respostas', page_respostas_recebidas)
 ]

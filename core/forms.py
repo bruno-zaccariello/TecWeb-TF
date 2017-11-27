@@ -1,5 +1,6 @@
 from django import forms
-from core.models import Disciplina, Contato, Avisos, MensagemAluno
+from core.models import Disciplina, Contato, Avisos, MensagemAluno, Questao, Resposta, Usuario
+from django.contrib.auth.forms import UserCreationForm
 
 class ContatoForm(forms.ModelForm):
 
@@ -36,3 +37,21 @@ class MensagemAlunoForm(forms.ModelForm):
     class Meta :
         model = MensagemAluno
         fields = ["assunto", "professor", "mensagem"]
+
+class QuestaoForm(forms.ModelForm):
+
+    class Meta :
+        model = Questao
+        fields = ["id_turma","numero", "data_limite_entrega", "descricao"]
+
+class RespostaForm(forms.ModelForm):
+    
+    class Meta :
+        model = Resposta
+        fields = ["id_questao", "descricao"]
+
+class CadastroForm(UserCreationForm):
+
+    class Meta:
+        model = Usuario
+        fields = ("nome", "ra", "email")

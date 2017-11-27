@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/CadastrarQuestao.css">
+	<title>Faculdade Lorenzinni - Enviar Questao</title>
+{% endblock %}
+{% block conteudo %}
+		
+    <form class="AvisoForm" method="POST">
+    
+        {% csrf_token %}
+        {% for field in form %}
+                {{ field.errors }}
+                <div class="DivInput">{{ field.label_tag }} {{ field }}</div>
+        {% endfor %}
+    
+    <button class="botaoReset" type="reset">Limpar</button>
+    <button class="botaoLogin" type="submit">Enviar</button><br/>
+    
+    </form>
+
+{% endblock %}

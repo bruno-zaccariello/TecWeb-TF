@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/MensagensProfessor.css">
+	<title>Faculdade Lorenzinni - Respostas</title>
+{% endblock %}
+{% block conteudo %}
+		
+    <div class="mensagembox">
+        <h1> Respostas </h1>
+        
+        <div class="display">
+        
+        {% for resposta in respostas %}
+                <div class="mensagem">
+                 <div class="aluno"> {{ resposta.id_aluno }} </div>
+                 <div class="textoCall">QUESTAO:</div> <div class="assunto"> {{resposta.id_questao}} </div>
+                 <div class="textoCall">RESPOSTA:</div> <div class="texto"> {{resposta.descricao}} </div>
+                </div>
+        {% endfor %}
+
+        </div>
+        
+    </div>
+
+{% endblock %}
