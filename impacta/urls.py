@@ -30,7 +30,9 @@ from core.views import page_disciplina_seginfoatualidade
 from core.views import page_avisos
 from core.views import page_mensagem_aluno
 from core.views import page_perfil_professor
+from core.views import page_perfil_aluno
 from core.views import page_mensagens_professor
+from core.views import page_avisos_aluno
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
@@ -52,5 +54,7 @@ urlpatterns = [
     url(r'^CriarAviso/', page_avisos),
     url(r'^EnviarMensagem/', page_mensagem_aluno),
     url(r'^PerfilProfessor/', page_perfil_professor),
-    url(r'^MensagensRecebidas/', page_mensagens_professor)
+    url(r'^PerfilAluno/', page_perfil_aluno),
+    url(r'^MensagensRecebidas/', page_mensagens_professor),
+    url(r'^AvisosRecebidos/', page_avisos_aluno)
 ]

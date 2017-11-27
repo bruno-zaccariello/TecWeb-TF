@@ -9,6 +9,9 @@
 		
     <div class="mensagembox">
         <h1> Mensagens Recebidas </h1>
+        
+        <div class="display">
+        
         {% for mensagem in mensagens %}
             {% if mensagem.professor == user %}
                 <div class="mensagem">
@@ -18,6 +21,8 @@
                 </div>
             {% endif %}
         {% endfor %}
+
+        </div>
         
     </div>
 

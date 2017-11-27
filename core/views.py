@@ -3,7 +3,7 @@ from django.http import request
 from core.forms import ContatoForm, DisciplinaForm, AvisosForm, MensagemAlunoForm
 from django.views.generic.edit import FormView
 from django.contrib.auth.decorators import login_required, user_passes_test
-from core.models import Aluno, Professor, MensagemAluno
+from core.models import Aluno, Professor, MensagemAluno, Avisos
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.forms import PasswordChangeForm
@@ -161,6 +161,11 @@ def page_perfil_professor(request) :
     return render(request, "PerfilProfessor.html")
 
 @login_required(login_url="/Login")
+@user_passes_test(checa_aluno)
+def page_perfil_aluno(request) :
+    return render(request, "PerfilAluno.html")
+
+@login_required(login_url="/Login")
 @user_passes_test(checa_professor)
 def page_mensagens_professor(request):
     mensagens = MensagemAluno.objects.all()
@@ -170,3 +175,12 @@ def page_mensagens_professor(request):
         "user":user
     }
     return render(request, "MensagensProfessor.html", contexto)
+
+@login_required(login_url="/Login")
+@user_passes_test(checa_aluno)
+def page_avisos_aluno(request):
+    avisos = Avisos.objects.all()
+    contexto = {
+        "avisos":avisos,
+    }
+    return render(request, "AvisosAluno.html", contexto)

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block scripts %}
+	{{ block.super}}
+    <link rel="stylesheet" type="text/css" href="/static/css/site.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/AvisosAluno.css">
+	<title>Faculdade Lorenzinni - Avisos</title>
+{% endblock %}
+{% block conteudo %}
+		
+    <div class="mensagembox">
+        <h1> Mensagens Recebidas </h1>
+        
+        <div class="display">
+        {% for aviso in avisos %}
+                <div class="mensagem">
+                 <div class="professor"> {{ aviso.professor }} para {{ aviso.turma }} </div>
+                 <div class="textoCall">ASSUNTO:</div> <div class="assunto"> {{aviso.titulo}} </div>
+                 <div class="textoCall">MENSAGEM:</div> <div class="texto"> {{aviso.texto}} </div>
+                </div>
+        {% endfor %}
+        </div>
+        
+    </div>
+
+{% endblock %}

@@ -1,5 +1,5 @@
 h1 {
-    color : rgb(33, 128, 184);
+    color : rgb(17, 40, 173);
     text-align: center;
 }
 
@@ -28,7 +28,7 @@ h1 {
     margin: 5px;
 }
 
-.aluno {
+.professor {
     border-bottom: 1px solid black;
     color: royalblue;
     font-size: 105%;
